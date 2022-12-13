@@ -1,63 +1,65 @@
 import React from "react";
-import Bg1 from '../assets/bg1.jpg';
+import {useNavigate} from 'react-router-dom'
+import card1 from '../assets/card1.png';
+import card2 from '../assets/card2.png';
+import card3 from '../assets/card3.png';
+import card4 from '../assets/card4.png';
+
+
+/**
+ *****************************************
+ * This is where the cards of main menu  *
+ * ***************************************
+ */
+
 export default function MainMenu() {
-
-
+    const navigate = useNavigate()
     return (
 
-        <div className="grid min-h-screen grid-cols-1 gap-2h-14 bg-gradient-to-r from-green-700 to-white place-items-center">
-            <div className="flex space-x-4 ...  content-center ... ">
+        <div className="grid min-h-screen grid-cols-1 mx-auto gap-2h-14 bg-gradient-to-r from-gray-800 to-white place-items-center">
+            <div className="flex space-x-4 ...  content-center ... relative">           
+                    {/** Response Record Registration */}
+                <div className="flex justify-center place-items-center drop-shadow-2xl ... cursor-pointer" onClick={null}>
+                    <div class="block rounded-lg shadow-lg bg-gray-200 hover:bg-gray-300 max-w-sm text-center bgimg" >
+                        <div class="p-6">
+                            <h5 className="mb-2 text-xl font-bold text-gray-900">Response Record Registraion</h5>
+                            <img className="my-3 ml-8" src={card3} alt="" />
+                        </div>
+                    </div>
+                </div>
                 
-                <div className="flex justify-center place-items-center drop-shadow-2xl ...">
-                    <div class="block rounded-lg shadow-lg bg-teal-900 hover:bg-teal-800 max-w-sm text-center ">
+                    {/** Repair Request Registration */}
+                <div className="flex justify-center place-items-center drop-shadow-2xl ... cursor-pointer" onClick={() => navigate('/repair')}>
+                    <div class="block rounded-lg shadow-lg bg-gray-200 hover:bg-gray-300 max-w-sm text-center bgimg" >
                         <div class="p-6">
-                            <h5 className="mb-2 text-xl font-medium text-gray-50">Special title treatment</h5>
-                            <p className="mb-4 text-base text-gray-50">
-                                With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <button type="button" class=" inline-block px-6 py-2.5 bg-green-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out hover:text-gray-50">Enter</button>
+                            <h5 className="mb-2 text-xl font-bold text-gray-900">Repair Request Registration</h5>
+                            <img className="my-3 ml-8" src={card4} alt="" />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex justify-center place-items-center drop-shadow-2xl ...">
-                    <div class="block rounded-lg shadow-lg bg-teal-900 hover:bg-teal-800 max-w-sm text-center ">
+                    {/** Response Record Search */}
+                <div className="flex justify-center place-items-center drop-shadow-2xl ... cursor-pointer " onClick={null}>
+                    <div class="block rounded-lg shadow-lg bg-gray-200 hover:bg-gray-300 max-w-sm text-center bgimg" >
                         <div class="p-6">
-                            <h5 className="mb-2 text-xl font-medium text-gray-50">Special title treatment</h5>
-                            <p className="mb-4 text-base text-gray-50">
-                                With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <button type="button" class=" inline-block px-6 py-2.5 bg-green-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out hover:text-gray-50">Enter</button>
+                            <h5 className="mb-2 text-xl font-bold text-gray-900">Response Record Search</h5>
+                            <img className="my-3 ml-8" src={card1} alt="" />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex justify-center place-items-center drop-shadow-2xl ...">
-                    <div class="block rounded-lg shadow-lg bg-teal-900 hover:bg-teal-800 max-w-sm text-center ">
+                    {/** Repair Request Search */}
+                <div className="flex justify-center place-items-center drop-shadow-4xl ... cursor-pointer"onClick={() => navigate('/repair-request-search')}>
+                    <div class="block rounded-lg shadow-lg bg-gray-200 hover:bg-gray-300 max-w-sm text-center bgimg" >
                         <div class="p-6">
-                            <h5 className="mb-2 text-xl font-medium text-gray-50">Special title treatment</h5>
-                            <p className="mb-4 text-base text-gray-50">
-                                With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <button type="button" class=" inline-block px-6 py-2.5 bg-green-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out hover:text-gray-50">Enter</button>
+                            <h5 className="mb-2 text-xl font-bold text-gray-900">Repair Request Search</h5>
+                            <img className="my-3 ml-8" src={card2} alt="" />
                         </div>
                     </div>
                 </div>
-
-                <div className="flex justify-center place-items-center drop-shadow-2xl ...">
-                    <div class="block rounded-lg shadow-lg bg-teal-900 hover:bg-teal-800 max-w-sm text-center ">
-                        <div class="p-6">
-                            <h5 className="mb-2 text-xl font-medium text-gray-50">Special title treatment</h5>
-                            <p className="mb-4 text-base text-gray-50">
-                                With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <button type="button" class=" inline-block px-6 py-2.5 bg-green-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out hover:text-gray-50">Enter</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+
 
 
 

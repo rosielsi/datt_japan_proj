@@ -1,5 +1,5 @@
 import React from "react";
-import Bg1 from '../assets/bg1.jpg';
+
 export default function Menu() {
 
     return (

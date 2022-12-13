@@ -52,8 +52,6 @@ export default function ProductRepair() {
                 </form>
             </div>
 
-
-
             <div>
                 <form className="bg-teal-500 max-w-[900px] w-full mx-auto p-2 px-10 mb-6 flex flex-col space-y-4 ... absolute right-2 ...">
                     <div className="relative z-0 justify-start mb-6 space-x-1 group md:flex md:w-auto">
