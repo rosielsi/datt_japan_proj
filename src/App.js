@@ -6,6 +6,7 @@ import RepairRequest from "./Components/RepairRequest";
 import RepairRequestSearch from "./Components/RepairRequestSearch";
 import Register from "./Components/Register";
 import AfterRegister from "./Components/AfterRegister";
+import ProvisionalReg from "./Components/ProvisionalReg";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/repair-request-search" element={<RepairRequestSearch />} />
         <Route path="/main-menu" element={<Routess />} />
         <Route path="/register-success" element={<AfterRegister />} />
+        <Route path="/prov-reg" element={<ProvisionalReg />} />
         <Route exact path="/repair" element={<RepairRequest />} />
 
       </Routes>

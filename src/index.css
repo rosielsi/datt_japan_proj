@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.App {
+  text-align: center;
+}
+
+
 @layer utilities {
     .content-auto {
       content-visibility: auto;

@@ -1,30 +1,21 @@
 import React, { useState, useEffect, Component, useRef } from 'react';
 import { ProjectOutlined, PullRequestOutlined, StarOutlined, TranslationOutlined, UserOutlined, CopyOutlined } from "@ant-design/icons";
-import { Anchor,Drawer, FloatButton, Message, Layout, Menu, Form, Col, Row, Input, Button, Tooltip, Select, DatePicker, Space, Radio, Checkbox, Alert, Switch, Modal, Table, message } from 'antd';
+import { Anchor, Drawer, FloatButton, Message, Layout, Menu, Form, Col, Row, Input, Button, Tooltip, Select, DatePicker, Space, Radio, Checkbox, Alert, Switch, Modal, Table, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import datas from '../Data-Repair.json'
 import Axios from 'axios';
 import ColumnGroup from 'antd/es/table/ColumnGroup';
+import AfterRegister from './AfterRegister';
+import ProvisionalReg from './ProvisionalReg';
+import '../index.css'
 const { Column } = Table;
-const {Link} = Anchor;
+const { Link } = Anchor;
 
 
 //=========================================MODALS========================================================================
 
-const dataItem1 = [
-    {
-        key: '1',
-        ShapeName: 'ShapeNameExmaple',
-        ManufacturerName: 'Brown',
-        ReleaseDate: '01/03/2022',
-        Bring: 'example',
-        NamesOfForms: 'example',
-        TradeName: 'example',
 
-    },
-
-];
 const Item1 = ({ SlipParameter }) => {
 
     //========================
@@ -50,24 +41,81 @@ const Item1 = ({ SlipParameter }) => {
     };
 
     return (
-        <>
+        <div style={{ backgroundColor: 'gray' }}>
             <Modal
-                title="Model Name" open={open} onOk={handleOk} onCancel={handleCancel}
+                title="Item Selection" open={open} onOk={handleOk} onCancel={handleCancel}
                 footer={[
+                    <Button key="back" onClick={handleCancel}>
+                        Cancel
+                    </Button>,
 
-                    <Button key="back" disabled>
+                    <Button key="reflect" disabled>
                         Reflect
                     </Button>
                 ]}
-                width={900}
+                width={400}
+
             >
-                <div>
-                    <Table dataSource={dataShapeName}>
-                        <Column title="Shape Name" dataIndex="ShapeName" key="ShapeName" />
-                    </Table>
+                <div className='App' style={{ padding: '0', margin: '0' }}>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px', hover: { color: 'blue' } }}>
+                            <p>1.</p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>2. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>3. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>3. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>3. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>3. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
+                            <p>3. </p>
+                        </Col>
+                        <Col span={20}>
+                            <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
+                        </Col>
+                    </Row>
                 </div>
             </Modal>
-        </>
+        </div>
     )
 }
 
@@ -872,8 +920,9 @@ function RepairRequest() {
     const [openModalSearch, setopenModalSearch] = useState(false); // History Search
     const [openModalKana, setopenModalKana] = useState(false); // kana
     const [openModalShapeName, setopenModalShapeName] = useState(false); // ShapeName
-    const [openModalBillingInfo, setopenModalBillingInfo] = useState(false);
-    const [OpenDrawer, setDrawer] = useState(false); // Billing Info
+    const [openModalBillingInfo, setopenModalBillingInfo] = useState(false); // Billing info
+    const [OpenDrawer, setDrawer] = useState(false); // Visit Hope day
+    const [OpenItem1, setItem1] = useState(false); // item 1 
     //------------------------------------------------------
 
 
@@ -882,16 +931,17 @@ function RepairRequest() {
 
     const [valueEstimate, setValue1] = useState("");
     const [valueRepair, setValue2] = useState("");
-    const [valueRequester, setValueRequester] = useState("");
-    const [valueRequesterNum, setValueRequesterNum] = useState("");
+    const [valueRequesterNum, setValueRequesterNum] = useState(0);
+    const [valueRepairNum, setvalueRepairNum] = useState(0);
+    const [valueEstimateNum, setvalueEstimateNum] = useState(0);
     const [valueFaxReplied, setvalueFaxReplied] = useState("");
-
+    const [valueConsumer, setvalueConsumers] = useState("Users");
+    const [valuesEstimate, setvaluesEstimate] = useState("Yes");
+    const [valuesRepair, setvaluesRepair] = useState("Yes");
     const onChangeRepair = (e) => {
-        console.log('radio checked', e.target.value);
         setValue2(e.target.value);
     };
     const onChangeEstimate = (e) => {
-        console.log('radio checked', e.target.value);
         setValue1(e.target.value);
     };
 
@@ -900,11 +950,44 @@ function RepairRequest() {
         setvalueFaxReplied(e.target.value);
     };
 
-    const onChangeRequester = (e) => {
-        console.log('radio checked', e.target.value);
-        setValueRequester(e.target.value);
-        setservice_symbol(e.target.value);
+    const onChangeRequesterNum = (e) => {
 
+        setValueRequesterNum(e.target.value)
+
+        if (valueRequesterNum > 0) {
+            setvalueConsumers("Users");
+        } else {
+            setvalueConsumers("Sales");
+        }
+    }
+
+    const onChangeEstimates = (e) => {
+
+        setvalueEstimateNum(e.target.value)
+
+        if (valueEstimateNum > 0) {
+            setvaluesEstimate("Yes");
+
+        } else {
+            setvaluesEstimate("No");
+        }
+    }
+
+    const onChangeRepairs = (e) => {
+
+        setvalueRepairNum(e.target.value)
+
+        if (valueRepairNum > 0) {
+            setvaluesRepair("Yes");
+
+        } else {
+            setvaluesRepair("No");
+        }
+    }
+
+
+    const onChangeRequester = (e) => {
+        setconsumer(e.target.value);
     };
 
     const navigate = useNavigate();
@@ -914,6 +997,17 @@ function RepairRequest() {
     const [theme, setTheme] = useState('light');
     const [collapsed, setCollapsed] = useState(false);
 
+    function copyFunction() {
+
+        var copyData = document.getElementById("inputText");
+        copyData.select();
+        navigator.clipboard.writeText(copyData.value);
+        
+    }
+
+    function clearText() {
+       
+    }
 
 
 
@@ -933,7 +1027,7 @@ function RepairRequest() {
     const [work_type, setwork_type] = useState("");
     const [sales_type, setsales_type] = useState("");
     const [delaer, setdelaer] = useState("");
-    const [consumer, setconsumer] = useState("");
+    const [consumer, setconsumer] = useState(valueConsumer);
     const [who_reg_this, setwho_reg_this] = useState("");
     const [reception_date_and_time, setreception_date_and_time] = useState("");
     const [dealer_tel, setdealer_tel] = useState("");
@@ -1054,7 +1148,7 @@ function RepairRequest() {
                         ({ key }) => {
                             navigate(key);
                         }}
-                    mode="inline" items={items} theme={theme} style={{ marginTop: '15vh' }}>
+                    mode="inline" href={items[0]} items={items} theme={theme} style={{ marginTop: '15vh' }}>
 
                 </Menu>
             </Sider>
@@ -1075,12 +1169,12 @@ function RepairRequest() {
                         <Col span={18}>
                             <center><h1 class="max-w-[1000px] py-2 mb-4 text-3xl font-extrabold text-blue-400 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-gray-50 from-teal-500">Repair Request</span> Registraion</h1></center>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={insert}>ID Issuance</Button>
-                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Registration</Button>
-                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Provisional Reg</Button>
+                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled onClick={() => navigate('/register-success')}>Registration</Button>
+                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled onClick={() => navigate('/prov-reg')}>Provisional Reg</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => navigate('/main-menu')}>Close</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={handle}>Printing</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Cancel</Button>
-                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Reflect of reg</Button>
+                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled >Reflect of reg</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => navigate('/repair-request-search')} >Repair slip</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setopenModal(true)}>Reservation SE</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Contact notes<a style={{ fontWeight: 'semi-bold' }}>(0)</a></Button>
@@ -1110,9 +1204,10 @@ function RepairRequest() {
                     {openModalShapeName && <RepairShapeName SlipParameter={setopenModalShapeName} />}
                     {openModalBillingInfo && <RepairBillingInfo SlipParameter={setopenModalBillingInfo} />}
                     {OpenDrawer && <Drawers SlipParameter={setDrawer} />}
+                    {OpenItem1 && <Item1 SlipParameter={setItem1} />}
                     {/* MODALS END */}
 
-                    <div ref={componentRef} >
+                    <div ref={componentRef} className='App'>
                         <center>
                             <Form  {...FormLayout} style={{ marginTop: 'auto', backgroundColor: '#F0F3F4', padding: '5px' }} >
                                 <center> <h1 id='basic' style={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '2em' }}> Basic Repair Information</h1> </center>
@@ -1130,6 +1225,7 @@ function RepairRequest() {
                                                     onChange={(e) => {
                                                         setrepair_receipt_ID(e.target.value)
                                                     }}
+                                                //id issuance
                                                 />
                                             </Col>
                                         </Row>
@@ -1151,6 +1247,7 @@ function RepairRequest() {
                                                 <Select placeholder="Select Reception Type" style={{ marginLeft: '5px' }}
                                                     onChange={(e) => {
                                                         setreception_type(e.target.value)
+                                                        //reception type
                                                     }}
                                                 >
                                                     <Select.Option value="demo">Demo1</Select.Option>
@@ -1172,17 +1269,16 @@ function RepairRequest() {
                                             <Col span={4}>
                                                 <Input type='number'
                                                     value={valueRequesterNum}
-                                                    onChange={
-                                                        (e) => {
-                                                            setValueRequesterNum(e.target.value);
-                                                        }
-                                                    }
+                                                    min={0} max={1}
+                                                    id="requester"
+                                                    onChange={onChangeRequesterNum}
                                                 />
                                             </Col>
                                             <Col span={15}>
-                                                <Radio.Group onChange={onChangeRequester} value={valueRequester} style={{ marginLeft: '20px' }}>
-                                                    <Radio value={1}>Users</Radio>
-                                                    <Radio value={2}>Sales</Radio>
+                                                {/* service sysmbol */}
+                                                <Radio.Group onChange={onChangeRequester} value={valueConsumer} style={{ marginLeft: '20px' }}>
+                                                    <Radio value={"Users"}>Users</Radio>
+                                                    <Radio value={"Sales"}>Sales</Radio>
                                                 </Radio.Group>
                                             </Col>
                                         </Row>
@@ -1199,6 +1295,7 @@ function RepairRequest() {
                                                 <Input className='txtBox-underline' placeholder="Document Number..." disabled
                                                     onChange={(e) => {
                                                         setticket_ID(setrepair_receipt_ID(e.target.value))
+                                                        //Ticket ID or Document ID
                                                     }}
                                                 />
                                             </Col>
@@ -1219,6 +1316,7 @@ function RepairRequest() {
                                                 <Select placeholder="Select Business Segment" style={{ marginLeft: '5px' }}
                                                     onChange={(e) => {
                                                         setwork_type(e.target.value)
+                                                        //Work type
                                                     }}
                                                 >
                                                     <Select.Option value="demo">Demo</Select.Option>
@@ -1238,7 +1336,11 @@ function RepairRequest() {
                                     >
                                         <Row style={{ width: '400px', marginLeft: '50px' }}>
                                             <Col>
-                                                <Input className='txtBox-underline' placeholder="Receptionist..." disabled />
+                                                <Input className='txtBox-underline' placeholder="Receptionist..." disabled
+                                                    onChange={(e) => {
+                                                        setdelaer(e.target.value)
+                                                        //set dealer or Receptionist
+                                                    }} />
                                             </Col>
                                         </Row>
                                     </Form.Item>
@@ -1286,27 +1388,39 @@ function RepairRequest() {
                                         <Form.Item label="Dealer Tell" style={{ width: '400px', color: 'green' }} >
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col span={11}>
-                                                    <Input placeholder="Dealer Tell" />
+                                                    <Input placeholder="Dealer Tell"
+                                                        onChange={(e) => {
+                                                            setdealer_tel(e.target.value)
+                                                        }}
+                                                    />
                                                 </Col>
                                                 <Col span={4} style={{ marginLeft: '5px' }}>
                                                     <Input type='number' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                             </Row>
                                         </Form.Item>
                                         <Form.Item label="Contact Tell1" style={{ width: '400px' }}>
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col>
-                                                    <Input type='number' placeholder='Contact Tell1...' />
+                                                    <Input type='number' placeholder='Contact Tell1...'
+                                                        onChange={(e) => {
+                                                            setdealer_tell_1(e.target.value)
+                                                        }}
+                                                    />
                                                 </Col>
                                             </Row>
                                         </Form.Item>
                                         <Form.Item label="Dealer Name" style={{ width: '400px' }} >
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col span={20} style={{ marginLeft: '5px' }}>
-                                                    <Input placeholder='Dealer Name...' />
+                                                    <Input placeholder='Dealer Name...'
+                                                        onChange={(e) => {
+                                                            setdealer_name(e.target.value)
+                                                        }}
+                                                    />
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setopenModalKana(true)}>Search</Button>
@@ -1326,11 +1440,13 @@ function RepairRequest() {
                                         <Form.Item label="Dealer Address" style={{ width: '400px' }} >
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col span={15} style={{ marginLeft: '5px' }}>
-                                                    <Input placeholder='Dealer Address..' />
+                                                    <Input id="inputText" placeholder='Dealer Address..' />
                                                 </Col>
                                                 <Col span={2}>
                                                     <Tooltip title="copy dealer address">
-                                                        <Button icon={<CopyOutlined />} />
+                                                        <Button icon={<CopyOutlined />}
+                                                        onClick={copyFunction}
+                                                        />
                                                     </Tooltip>
                                                 </Col>
                                                 <Col span={3}>
@@ -1486,7 +1602,7 @@ function RepairRequest() {
                                                     <Input placeholder='Product line-up...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1529,7 +1645,7 @@ function RepairRequest() {
                                                     <Input placeholder='Phenomenon...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1545,7 +1661,7 @@ function RepairRequest() {
                                                     <Input placeholder='State...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1588,12 +1704,16 @@ function RepairRequest() {
                                         <Form.Item label="Estimate" style={{ width: '400px' }} >
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col span={4}>
-                                                    <Input type='number' />
+                                                    <Input type='number'
+                                                        min={0} max={1}
+                                                        onChange={onChangeEstimates}
+                                                        value={valueEstimateNum}
+                                                    />
                                                 </Col>
                                                 <Col span={15}>
-                                                    <Radio.Group onChange={onChangeEstimate} value={valueEstimate} style={{ marginLeft: '20px' }}>
-                                                        <Radio value={1}>Yes</Radio>
-                                                        <Radio value={2}>No</Radio>
+                                                    <Radio.Group onChange={onChangeEstimate} value={valuesEstimate} style={{ marginLeft: '20px' }}>
+                                                        <Radio value={"Yes"}>Yes</Radio>
+                                                        <Radio value={"No"}>No</Radio>
                                                     </Radio.Group>
                                                 </Col>
                                             </Row>
@@ -1601,12 +1721,16 @@ function RepairRequest() {
                                         <Form.Item label="Repair" style={{ width: '400px' }} >
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
                                                 <Col span={4}>
-                                                    <Input type='number' />
+                                                    <Input type='number'
+                                                        min={0} max={1}
+                                                        onChange={onChangeRepairs}
+                                                        value={valueRepairNum}
+                                                    />
                                                 </Col>
                                                 <Col span={15}>
-                                                    <Radio.Group onChange={onChangeRepair} value={valueRepair} style={{ marginLeft: '20px' }}>
-                                                        <Radio value={1}>Yes</Radio>
-                                                        <Radio value={2}>No</Radio>
+                                                    <Radio.Group onChange={onChangeRepair} value={valuesRepair} style={{ marginLeft: '20px' }}>
+                                                        <Radio value={"Yes"}>Yes</Radio>
+                                                        <Radio value={"No"}>No</Radio>
                                                     </Radio.Group>
                                                 </Col>
                                             </Row>
@@ -1696,7 +1820,9 @@ function RepairRequest() {
                                             <Row style={{ width: '400px', marginLeft: '50px' }}>
 
                                                 <Col span={4}>
-                                                    <Input type='number' />
+                                                    <Input type='number'
+                                                        min={0} max={1000}
+                                                    />
                                                 </Col>
                                                 <Col span={4}>
                                                     <p>1,000 yen</p>
@@ -1770,7 +1896,7 @@ function RepairRequest() {
                                                     <Input />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1784,7 +1910,7 @@ function RepairRequest() {
                                                     <Input />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1795,13 +1921,16 @@ function RepairRequest() {
                                                     <Input type='number' />
                                                 </Col>
                                                 <Col span={14} style={{ marginLeft: '5px' }}>
-                                                    <Input />
+                                                    <Input
+                                                    id="Input-clear"
+                                                    />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
+                                                    <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}
+                                                        onClick={clearText}>Clear</Button>
                                                 </Col>
                                             </Row>
                                         </Form.Item>
