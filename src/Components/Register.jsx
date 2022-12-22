@@ -9,7 +9,7 @@ export default function Register() {
     const navigate = useNavigate()
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
+    
     const login = () => {
         Axios.post("http://localhost:6969/register?", {
             username: username,

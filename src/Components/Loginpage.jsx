@@ -4,31 +4,46 @@ import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import '../index.css';
 
-export default function Loginpage() {
 
+
+//======================='
+//                       '
+//     Log In page       '
+//                       '
+//======================='
+
+
+export default function Loginpage() {
 
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [pass, setPassword] = useState("");
-  
-  
-  const login = () => {
-    Axios.post("http://localhost:6969/", {
+
+
+  const login = async () => {
+
+   await Axios.post("http://localhost:6969/login", {
       username: username,
       pass: pass,
 
     }).then((response) => {
-      if(response.data.message){
-        alert(response.data.message)
-        
-      }else{
-        alert(response.data.message)
+
+      if (username == "" || pass == "") {
+        alert("Input username or password")
+      } else {
+        if (response.data.message) {
+          alert(response.data.message)
+          localStorage.setItem('password',response.data.pass);
+          localStorage.setItem('user',response.data.username);
+        } else {  
+          alert(response.data.message)
+        }
       }
     });
-    
+
   };
-  
-  
+
+
 
   return (
     <div className="grid w-full h-screen grid-cols1 sm:grid-cols-2">
@@ -52,7 +67,6 @@ export default function Loginpage() {
             <input id="PassVal" className="block py-2.5 px-0 w-full text-l text-slate-50 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer " type="password" placeholder="パスワード..."
               onChange={(e) => { setPassword(e.target.value) }}></input>
           </div>
-
           <div>
             <button className=" my-5 text-white bg-teal-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={login}>ログインする</button>
           </div>

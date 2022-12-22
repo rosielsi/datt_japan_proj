@@ -21,7 +21,8 @@ function App() {
         <Route path="/main-menu" element={<Routess />} />
         <Route path="/register-success" element={<AfterRegister />} />
         <Route path="/prov-reg" element={<ProvisionalReg />} />
-        <Route exact path="/repair" element={<RepairRequest />} />
+        <Route path="/repair" element={<RepairRequest />} />
+        <Route exact path="*" element={<h1>Error 404 Not found</h1>} />
 
       </Routes>
     </BrowserRouter>

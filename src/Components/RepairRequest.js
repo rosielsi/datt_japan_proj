@@ -15,7 +15,6 @@ const { Link } = Anchor;
 
 //=========================================MODALS========================================================================
 
-
 const Item1 = ({ SlipParameter }) => {
 
     //========================
@@ -83,7 +82,7 @@ const Item1 = ({ SlipParameter }) => {
                     </Row>
                     <Row>
                         <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
-                            <p>3. </p>
+                            <p>4. </p>
                         </Col>
                         <Col span={20}>
                             <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
@@ -91,7 +90,7 @@ const Item1 = ({ SlipParameter }) => {
                     </Row>
                     <Row>
                         <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
-                            <p>3. </p>
+                            <p>5. </p>
                         </Col>
                         <Col span={20}>
                             <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
@@ -99,7 +98,7 @@ const Item1 = ({ SlipParameter }) => {
                     </Row>
                     <Row>
                         <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
-                            <p>3. </p>
+                            <p>6. </p>
                         </Col>
                         <Col span={20}>
                             <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
@@ -107,7 +106,7 @@ const Item1 = ({ SlipParameter }) => {
                     </Row>
                     <Row>
                         <Col span={2} style={{ border: 'solid', borderColor: 'gray', padding: '2px' }}>
-                            <p>3. </p>
+                            <p>7. </p>
                         </Col>
                         <Col span={20}>
                             <p style={{ cursor: 'pointer', border: 'solid', borderColor: 'gray', width: 'auto' }}>1. list of items inside the modals from database. Not finished yet</p>
@@ -194,6 +193,97 @@ const VisitHopeDayData = [
         TradeName: '0 (/)(/)',
 
     },
+    {
+        key: '7',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '8',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '9',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '10',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '11',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '12',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '13',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '14',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+    {
+        key: '15',
+        ShapeName: '12/13/2022',
+        ManufacturerName: 'gold',
+        ReleaseDate: '0 (/)',
+        Bring: '0 (/)(/)',
+        NamesOfForms: '0 (/)(/)',
+        TradeName: '0 (/)(/)',
+
+    },
+
 
 ];
 const RepairShapeName = ({ SlipParameter }) => {
@@ -829,7 +919,6 @@ const RepairBillingInfo = ({ SlipParameter }) => {
     )
 }
 
-
 const Drawers = ({ SlipParameter }) => {
 
     const [open, setOpen] = useState(true);
@@ -839,11 +928,8 @@ const Drawers = ({ SlipParameter }) => {
         setOpen(false);
         SlipParameter(false);
     };
-
-
     return (
-        <>
-
+        <div>
             <Drawer
                 footer={
                     <center>
@@ -852,7 +938,7 @@ const Drawers = ({ SlipParameter }) => {
                                 color: 'gray',
                                 fontFamily: '-moz-initial'
                             }}
-                        >Datt-Japan</p>
+                        >Copyright Ⓒ 2018 DATT JAPAN Inc.</p>
                     </center>
                 }
                 title="Visit Hope Day"
@@ -869,29 +955,28 @@ const Drawers = ({ SlipParameter }) => {
                     </Space>
                 }
             >
-                <p >Selected visit date/time zone Thu No designation 'A2100'</p>
-                <p >Total Booked: 0</p>
-                <Table dataSource={VisitHopeDayData}>
-                    <Column title="Date" dataIndex="ShapeName" key="ShapeName" style={{ cursor: 'pointer' }} />
-                    <Column title="Day" dataIndex="ManufacturerName" key="ManufacturerName" />
-                    <ColumnGroup title="Reservation Available (reserved/visitable)">
-                        <Column title="No Specification" dataIndex="ReleaseDate" key="ReleaseDate" />
-                        <Column title="On the" dataIndex="Bring" key="Bring" />
-                        <Column title="PM 1" dataIndex="NamesOfForms" key="NamesOfForms" />
-                        <Column title="PM 2" dataIndex="TradeName" key="TradeName" />
-                    </ColumnGroup>
-                </Table>
-
                 <div>
-                    <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={onClose}>
-                        OK
-                    </Button>
+                    <p >Selected visit date/time zone Thu No designation 'A2100'</p>
+                    <p >Total Booked: 0</p>
+                    <Table dataSource={VisitHopeDayData}>
+                        <Column title="Date" dataIndex="ShapeName" key="ShapeName" style={{ cursor: 'pointer' }} />
+                        <Column title="Day" dataIndex="ManufacturerName" key="ManufacturerName" />
+                        <ColumnGroup title="Reservation Available (reserved/visitable)">
+                            <Column title="No Specification" dataIndex="ReleaseDate" key="ReleaseDate" />
+                            <Column title="On the" dataIndex="Bring" key="Bring" />
+                            <Column title="PM 1" dataIndex="NamesOfForms" key="NamesOfForms" />
+                            <Column title="PM 2" dataIndex="TradeName" key="TradeName" />
+                        </ColumnGroup>
+                    </Table>
+                    <div>
+                        <Button onClick={onClose}>Cancel</Button>
+                        <Button onClick={onClose}>
+                            OK
+                        </Button>
+                    </div>
                 </div>
-
             </Drawer>
-
-        </>
+        </div>
     );
 };
 //=======================================END MODALS======================================================================
@@ -1002,11 +1087,11 @@ function RepairRequest() {
         var copyData = document.getElementById("inputText");
         copyData.select();
         navigator.clipboard.writeText(copyData.value);
-        
+
     }
 
     function clearText() {
-       
+
     }
 
 
@@ -1173,7 +1258,7 @@ function RepairRequest() {
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled onClick={() => navigate('/prov-reg')}>Provisional Reg</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => navigate('/main-menu')}>Close</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={handle}>Printing</Button>
-                            <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Cancel</Button>
+                                  <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled>Cancel</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} disabled >Reflect of reg</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => navigate('/repair-request-search')} >Repair slip</Button>
                             <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setopenModal(true)}>Reservation SE</Button>
@@ -1445,7 +1530,7 @@ function RepairRequest() {
                                                 <Col span={2}>
                                                     <Tooltip title="copy dealer address">
                                                         <Button icon={<CopyOutlined />}
-                                                        onClick={copyFunction}
+                                                            onClick={copyFunction}
                                                         />
                                                     </Tooltip>
                                                 </Col>
@@ -1602,7 +1687,7 @@ function RepairRequest() {
                                                     <Input placeholder='Product line-up...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1645,7 +1730,7 @@ function RepairRequest() {
                                                     <Input placeholder='Phenomenon...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1661,7 +1746,7 @@ function RepairRequest() {
                                                     <Input placeholder='State...' />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1896,7 +1981,7 @@ function RepairRequest() {
                                                     <Input />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1910,7 +1995,7 @@ function RepairRequest() {
                                                     <Input />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}>Clear</Button>
@@ -1922,11 +2007,11 @@ function RepairRequest() {
                                                 </Col>
                                                 <Col span={14} style={{ marginLeft: '5px' }}>
                                                     <Input
-                                                    id="Input-clear"
+                                                        id="Input-clear"
                                                     />
                                                 </Col>
                                                 <Col span={3}>
-                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }}  onClick={() => setItem1(true)}>Search</Button>
+                                                    <Button style={{ marginLeft: '5px', backgroundColor: 'white', fontFamily: 'sans-serif' }} onClick={() => setItem1(true)}>Search</Button>
                                                 </Col>
                                                 <Col span={3}>
                                                     <Button style={{ marginLeft: '35px', backgroundColor: 'white', fontFamily: 'sans-serif' }}
